@@ -8,12 +8,18 @@
 
 namespace PhSpring\ZF1\Application;
 
+use PhSpring\Engine\InvokerConfig;
+use PhSpring\ZF1\Controller\Request;
+use PhSpring\ZF1\Controller\Response;
+use Zend_Controller_Action_HelperBroker;
+use Zend_Controller_Front;
+
 /**
  * Description of Bootstrap
  *
  * @author lobiferi
  */
-class Bootstrap {
+class Bootstrap extends \Zend_Application_Bootstrap_Bootstrap {
 
     protected function _initInvokerConfig() {
         $request = new Request();

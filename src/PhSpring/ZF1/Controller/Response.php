@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace PhSpring\ZF1\Application;
+namespace PhSpring\ZF1\Controller;
 
 use PhSpring\Engine\IResponseHelper;
 use Zend_Controller_Action_Helper_ViewRenderer;
