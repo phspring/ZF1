@@ -1,0 +1,17 @@
+{
+    "name": "vendor/ph-spring-z-f1",
+    "description": "Description of project PhSpring-ZF1.",
+    "authors": [
+        {
+            "name": "lobiferi",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "phspring/common": "dev-master",
+        "zendframework/zendframework1": "dev-master"
+    },
+    "minimum-stability": "dev"
+
+}
