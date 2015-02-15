@@ -2,6 +2,7 @@
 
 namespace PhSpring\ZF1\Controller;
 
+use BadMethodCallException;
 use PhSpring\Annotations\ExceptionHandler;
 use PhSpring\Engine\Exceptions\UnAuthorizedException;
 use PhSpring\Engine\MethodInvoker;
@@ -9,12 +10,12 @@ use PhSpring\Engine\MethodInvoker;
 /**
  * @author lobiferi
  */
-abstract class ActionAbstract extends Zend_Controller_Action {
+abstract class ActionAbstract extends \Zend_Controller_Action {
 
     private $returnedValue;
 
     public function init() {
-        Zend_Controller_Front::getInstance()->setBaseUrl('/');
+        \Zend_Controller_Front::getInstance()->setBaseUrl('/');
     }
 
     /**
@@ -23,7 +24,7 @@ abstract class ActionAbstract extends Zend_Controller_Action {
      */
     public function postDispatch() {
         if ($this->_helper->viewRenderer->getNoRender()) {
-            $this->_response->setBody(Zend_Json::encode($this->returnedValue));
+            $this->_response->setBody(\Zend_Json::encode($this->returnedValue));
             return true;
         }
         return false;

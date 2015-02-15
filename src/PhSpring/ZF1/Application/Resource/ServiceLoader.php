@@ -110,7 +110,7 @@ class ServiceLoader {
                 $this->beanFactory->addBeanClass($service, $name);
             } catch (\Exception $e) {
                 var_dump($service, $name);
-                var_dump($e);
+                echo $e->getTraceAsString();
                 die();
             }
         }
