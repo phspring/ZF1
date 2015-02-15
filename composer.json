@@ -12,6 +12,12 @@
         "phspring/common": "dev-master",
         "zendframework/zendframework1": "dev-master"
     },
+    "autoload": {
+        "psr-4": {
+            "PhSpring\\ZF1\\": "src/PhSpring/ZF1"
+        }
+    },
+    
     "minimum-stability": "dev"
 
 }
