@@ -67,12 +67,16 @@ class Proxy extends ActionAbstract {
         try {
             $annotatedMethod = RequestMappingHelper::getMatchingMethod($this->controller);
             if ($annotatedMethod !== null) {
+                $action = $annotatedMethod;
                 $this->setReturnedValue(MethodInvoker::invoke($this->controller, $annotatedMethod, $args));
             } else if (method_exists($this->controller, $methodName)) {
                 $this->setReturnedValue(MethodInvoker::invoke($this->controller, $methodName, $args));
+                $action = $methodName;
             } else {
                 $this->setReturnedValue(MethodInvoker::invoke($this->controller, $method[1], $args));
+                $action = $method[1];
             }
+            \Zend_Controller_Front::getInstance()->getRequest()->setActionName($action);
         } catch (BadMethodCallException $exc) {
             return parent::__call($methodName, $args);
         } catch (UnAuthorizedException $exc) {

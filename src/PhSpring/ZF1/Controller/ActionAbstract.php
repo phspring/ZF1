@@ -23,6 +23,12 @@ abstract class ActionAbstract extends \Zend_Controller_Action {
      * @override
      */
     public function postDispatch() {
+        if (!empty($this->returnedValue)) {
+            foreach ($this->returnedValue as $key => $value) {
+                $this->view->assign($key, $value);
+            }
+        }
+
         if ($this->_helper->viewRenderer->getNoRender()) {
             $this->_response->setBody(\Zend_Json::encode($this->returnedValue));
             return true;
